@@ -13,10 +13,11 @@ make -C ../../source/${UCLIBC} O=$(pwd) defconfig
 
 sed \
     -e "s#KERNEL_HEADERS=.*#KERNEL_HEADERS=\"${HROOT}/include\"#g" \
-    -e "s#RUNTIME_PREFIX=.*#RUNTIME_PREFIX=\"${HROOT}\"#g" \
-    -e "s#DEVEL_PREFIX=.*#DEVEL_PREFIX=\"${HROOT}\"#g" \
+    -e "s#RUNTIME_PREFIX=.*#RUNTIME_PREFIX=\"\"#g" \
+    -e "s#DEVEL_PREFIX=.*#DEVEL_PREFIX=\"\"#g" \
     -e "s/HAS_NO_THREADS=n/#HAS_NO_THREADS is not set/g" \
     -e "s#CROSS_COMPILER_PREFIX=.*#CROSS_COMPILER_PREFIX=\"${HROOT}/bin/${TARGET}-\"#g" \
+    -e "s#HARDWIRED_ABSPATH=y#HARDWIRED_ABSPATH=n#g" \
     -i .config
 
 

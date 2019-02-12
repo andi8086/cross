@@ -17,7 +17,7 @@ unset CXXFLAGS
 
 export LC_ALL=POSIX
 
-export TARGET=x86_64-andi-linux-gnu
+export TARGET=x86_64-andi-linux-uclibc
 export TROOT=${PR}/rootfs
 export HROOT=${PR}/host
 
@@ -33,3 +33,9 @@ export HROOT=${PR}/host
 # install uclibc-headers into target rootfs
 ./uclibc-cross.sh
 
+# ./mpfr-host.sh
+./libstdcxx.sh
+
+./binutils-stage2.sh
+
+./gcc-stage2.sh
